@@ -90,6 +90,27 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", menuOpen);
+
+    const onKeyDown = event => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    const onResize = () => {
+      if (window.innerWidth > 1050) setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      document.body.classList.remove("menu-open");
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [menuOpen]);
+
   const whatsappLink = useMemo(() => {
     const message = `Hello, I would like to order the Ulthimo 5% Minoxidil Hair Regrowth Kit. Quantity: ${qty}. Please confirm the current price, availability, delivery fee and payment details.`;
     return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -120,18 +141,33 @@ function App() {
             <MessageCircle size={17}/> Order on WhatsApp
           </a>
 
-          <button className="menu" onClick={() => setMenuOpen(v => !v)} aria-label="Open navigation menu">
+          <button
+            className="menu"
+            onClick={() => setMenuOpen(v => !v)}
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+          >
             {menuOpen ? <X/> : <Menu/>}
           </button>
         </div>
 
         {menuOpen && (
-          <div className="mobile-nav container">
-            <button onClick={() => go("product")}>The Kit</button>
-            <button onClick={() => go("details")}>Details</button>
-            <button onClick={() => go("order")}>Order</button>
-            <button onClick={() => go("faq")}>FAQ</button>
-            <a href={whatsappLink} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+          <div className="mobile-nav-shell" aria-hidden={!menuOpen}>
+            <button className="mobile-nav-backdrop" aria-label="Close menu" onClick={() => setMenuOpen(false)} />
+            <div className="mobile-nav-panel container" id="mobile-navigation" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+              <div className="mobile-nav-head">
+                <span>Quick navigation</span>
+                <button className="mobile-nav-close" onClick={() => setMenuOpen(false)} aria-label="Close menu"><X size={18}/></button>
+              </div>
+              <div className="mobile-nav">
+                <button onClick={() => go("product")}>The Kit</button>
+                <button onClick={() => go("details")}>Details</button>
+                <button onClick={() => go("order")}>Order</button>
+                <button onClick={() => go("faq")}>FAQ</button>
+                <a href={whatsappLink} target="_blank" rel="noreferrer">Order on WhatsApp</a>
+              </div>
+            </div>
           </div>
         )}
       </header>
@@ -150,7 +186,7 @@ function App() {
                 <span className="line">stronger hair.</span>
               </h1>
               <p className="hero-description">
-                Ulthimo brings together 5% Minoxidil and a derma roller in one convenient kit — giving customers a clear product overview and a direct WhatsApp ordering path.
+                Ulthimo brings together 5% Minoxidil and a derma roller in one convenient kit — making the routine easier to understand, easier to order and easier to start.
               </p>
 
               <div className="hero-actions hero-actions-motion">
