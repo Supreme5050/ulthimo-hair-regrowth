@@ -23,15 +23,15 @@ const WA_NUMBER = "2349169619444";
 const faqs = [
   {
     q: "How do I place an order?",
-    a: "Tap any Order on WhatsApp button. Your selected quantity will be included in the message so the seller can confirm current price, availability, delivery fee and payment details.",
+    a: "Tap any Order on WhatsApp button, choose your quantity and send your request. We will confirm availability and delivery arrangements with you directly on WhatsApp.",
   },
   {
     q: "What is included in the kit?",
-    a: "The product shown is Ulthimo Men's Extra Strength 5% Minoxidil Hair Regrowth Kit with a derma roller. Confirm the exact pack contents with the seller before payment.",
+    a: "The Ulthimo Hair Regrowth Kit includes the 5% Minoxidil treatment pack and a derma roller. Payment on delivery is available, so you can place your order first and pay when it arrives.",
   },
   {
     q: "Is the current price shown on the website?",
-    a: "No. Pricing and delivery costs can change, so the current total is confirmed directly on WhatsApp before you pay.",
+    a: "No. The latest price and delivery details are confirmed with you directly on WhatsApp before dispatch, and payment on delivery is available.",
   },
   {
     q: "How soon can I expect results?",
@@ -113,6 +113,11 @@ function App() {
 
   const whatsappLink = useMemo(() => {
     const message = `Hello, I would like to order the Ulthimo 5% Minoxidil Hair Regrowth Kit. Quantity: ${qty}. Please confirm the current price, availability, delivery fee and payment details.`;
+    return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+  }, [qty]);
+
+  const paymentOnDeliveryLink = useMemo(() => {
+    const message = `Hello, I want to order the Ulthimo 5% Minoxidil Hair Regrowth Kit with payment on delivery. Quantity: ${qty}. Please confirm availability and delivery arrangements.`;
     return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
   }, [qty]);
 
@@ -263,8 +268,8 @@ function App() {
 
             <div className="order-panel reveal">
               <span className="kicker">ORDER ON WHATSAPP</span>
-              <h2>Choose your quantity. We'll handle the rest.</h2>
-              <p>Continue to WhatsApp to confirm the current price, stock availability, delivery fee and payment details with the seller.</p>
+              <h2>Choose your quantity and order with confidence.</h2>
+              <p>Place your order on WhatsApp and confirm delivery quickly. Payment on delivery is available, so buyers can order now and pay when the product arrives.</p>
 
               <div className="order-specs">
                 <div><span>Product</span><b>Ulthimo Hair Regrowth Kit</b></div>
@@ -281,8 +286,11 @@ function App() {
                 </div>
               </div>
 
-              <a className="btn gold full" href={whatsappLink} target="_blank" rel="noreferrer">Continue to WhatsApp <ArrowRight size={18}/></a>
-              <small className="order-note">No payment is taken on this page. Your order total is confirmed in chat.</small>
+              <div className="order-actions-stack">
+                <a className="btn gold full" href={whatsappLink} target="_blank" rel="noreferrer">Continue to WhatsApp <ArrowRight size={18}/></a>
+                <a className="btn delivery full" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Payment on Delivery <ArrowRight size={18}/></a>
+              </div>
+              <small className="order-note">This page does not collect payment. Price, delivery details and payment on delivery are confirmed directly in chat.</small>
             </div>
           </div>
         </section>
@@ -307,9 +315,12 @@ function App() {
               <div>
                 <span className="kicker light">READY TO ORDER?</span>
                 <h2>Speak with us directly on WhatsApp.</h2>
-                <p>Ask for the current price, delivery fee, stock availability and payment details in one quick conversation.</p>
+                <p>Ask for availability, delivery options and place your order instantly. Buyers can also request payment on delivery during confirmation.</p>
               </div>
-              <a className="btn gold" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp <ArrowRight size={18}/></a>
+              <div className="cta-actions">
+                <a className="btn gold" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp <ArrowRight size={18}/></a>
+                <a className="btn delivery" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Payment on Delivery <ArrowRight size={18}/></a>
+              </div>
             </div>
           </div>
         </section>
