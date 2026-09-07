@@ -196,8 +196,10 @@ function App() {
 
               <div className="hero-actions hero-actions-motion">
                 <a className="btn gold" href={whatsappLink} target="_blank" rel="noreferrer">Order on WhatsApp <ArrowRight size={18}/></a>
-                <button className="btn ghost" onClick={() => go("product")}>See what's inside</button>
+                <a className="btn delivery hero-delivery" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Pay on Delivery <ArrowRight size={18}/></a>
               </div>
+
+              <button className="hero-inline-link" onClick={() => go("product")}>See what's inside <ArrowRight size={16}/></button>
 
               <div className="hero-trust hero-trust-motion">
                 <span><Check size={14}/> 5% Minoxidil</span>
@@ -247,12 +249,9 @@ function App() {
             </div>
 
             <div className="detail-media reveal">
-              <div className="detail-gallery">
+              <div className="detail-gallery detail-gallery-single">
                 <figure className="detail-card detail-card-main">
                   <img src="/details-main.jpg" alt="Ulthimo product presentation"/>
-                </figure>
-                <figure className="detail-card detail-card-accent">
-                  <img src="/details-accent.jpg" alt="Ulthimo product close-up"/>
                 </figure>
               </div>
             </div>
@@ -288,7 +287,7 @@ function App() {
 
               <div className="order-actions-stack">
                 <a className="btn gold full" href={whatsappLink} target="_blank" rel="noreferrer">Continue to WhatsApp <ArrowRight size={18}/></a>
-                <a className="btn delivery full" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Payment on Delivery <ArrowRight size={18}/></a>
+                <a className="btn delivery full" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Pay on Delivery <ArrowRight size={18}/></a>
               </div>
               <small className="order-note">This page does not collect payment. Price, delivery details and payment on delivery are confirmed directly in chat.</small>
             </div>
@@ -319,7 +318,7 @@ function App() {
               </div>
               <div className="cta-actions">
                 <a className="btn gold" href={whatsappLink} target="_blank" rel="noreferrer">Chat on WhatsApp <ArrowRight size={18}/></a>
-                <a className="btn delivery" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Payment on Delivery <ArrowRight size={18}/></a>
+                <a className="btn delivery" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Pay on Delivery <ArrowRight size={18}/></a>
               </div>
             </div>
           </div>
