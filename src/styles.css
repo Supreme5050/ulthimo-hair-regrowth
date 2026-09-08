@@ -737,3 +737,219 @@ body.menu-open{overflow:hidden}
   .order-visual{display:none}
   .order-grid{grid-template-columns:1fr}
 }
+
+
+/* V15 — purchase-first flow + Israel origin badge */
+.order-first-section{padding:64px 0 74px;background:linear-gradient(180deg,#f5f0e6 0%,#f9f6ef 100%)}
+.order-first-wrap{display:flex;justify-content:center}
+.order-panel-first{width:min(100%,980px);padding:38px 42px}
+.order-first-head{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:start}
+.order-first-head h2{max-width:720px}
+.made-in-israel-badge{display:flex;align-items:center;gap:12px;min-width:220px;padding:14px 16px;border-radius:18px;background:#f8f3e8;border:1px solid rgba(181,137,65,.24);box-shadow:0 10px 28px rgba(8,33,24,.05)}
+.flag-emoji{font-size:26px;line-height:1;display:inline-flex;flex:0 0 auto}
+.made-in-israel-badge small{display:block;margin-bottom:4px;font-size:9px;font-weight:800;letter-spacing:.14em;color:#7a6a4d}
+.made-in-israel-badge b{display:block;font-size:14px;color:#173126;white-space:nowrap}
+.origin-trust{color:#f1dcae!important}
+.origin-trust .flag-emoji{font-size:16px}
+.order-specs-first{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:30px 0 24px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fbfaf7}
+.order-specs-first div{display:grid;gap:5px;padding:16px 18px;border:0;border-right:1px solid var(--line)}
+.order-specs-first div:last-child{border-right:0}
+.order-specs-first span{font-size:12px;color:var(--muted)}
+.order-specs-first b{text-align:left;font-size:14px}
+.quantity-row-first{margin:24px 0;padding:20px;border-radius:18px;background:#f5f7f5;border:1px solid var(--line)}
+.quantity-row-first>div:first-child{display:grid;gap:3px}
+.quantity-label{font-weight:800;color:var(--ink)}
+.quantity-row-first small{color:var(--muted)}
+.order-actions-first{grid-template-columns:1fr 1fr;display:grid;gap:12px}
+.order-panel-first .order-note{margin-top:14px}
+
+@media(max-width:900px){
+  .order-first-head{grid-template-columns:1fr}
+  .made-in-israel-badge{width:max-content;max-width:100%}
+  .order-specs-first{grid-template-columns:1fr 1fr}
+  .order-specs-first div:nth-child(2){border-right:0}
+  .order-specs-first div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+
+@media(max-width:700px){
+  .order-first-section{padding:42px 0 56px}
+  .order-panel-first{padding:24px;border-radius:24px}
+  .order-first-head{gap:18px}
+  .made-in-israel-badge{width:100%;min-width:0}
+  .made-in-israel-badge b{white-space:normal}
+  .order-specs-first{grid-template-columns:1fr}
+  .order-specs-first div{border-right:0!important;border-bottom:1px solid var(--line)!important}
+  .order-specs-first div:last-child{border-bottom:0!important}
+  .quantity-row-first{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px}
+  .order-actions-first{grid-template-columns:1fr}
+  .origin-trust{grid-column:auto!important}
+}
+
+
+/* V16 — highly visible Israel origin banner (no image asset used) */
+.israel-origin-banner{display:flex;align-items:center;gap:18px;margin:-8px 0 28px;padding:18px 20px;border-radius:20px;background:linear-gradient(135deg,#fff 0%,#f8fbff 100%);border:1px solid rgba(26,82,166,.20);box-shadow:0 14px 34px rgba(8,33,24,.07)}
+.israel-flag{position:relative;flex:0 0 78px;width:78px;height:50px;border-radius:8px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.10);box-shadow:0 6px 14px rgba(0,0,0,.08)}
+.flag-stripe{position:absolute;left:0;right:0;height:7px;background:#1f5aa6}
+.flag-stripe-top{top:8px}.flag-stripe-bottom{bottom:8px}
+.flag-star{position:absolute;inset:0;display:grid;place-items:center;color:#1f5aa6;font-size:26px;line-height:1;font-style:normal}
+.origin-banner-copy{display:grid;gap:2px;min-width:0}
+.origin-banner-copy small{font-size:9px;font-weight:800;letter-spacing:.16em;color:#5f6e80}
+.origin-banner-copy b{font-family:"Manrope",sans-serif;font-size:20px;color:#102a20;line-height:1.2}
+.origin-banner-copy em{font-style:normal;font-size:12px;color:#68776f;line-height:1.45}
+.israel-flag-mini{position:relative;display:inline-grid;place-items:center;flex:0 0 24px;width:24px;height:16px;border-radius:3px;background:linear-gradient(to bottom,#fff 0 18%,#1f5aa6 18% 30%,#fff 30% 70%,#1f5aa6 70% 82%,#fff 82% 100%);border:1px solid rgba(255,255,255,.45);overflow:hidden}
+.israel-flag-mini span{font-size:10px!important;line-height:1!important;color:#1f5aa6!important}
+
+@media(max-width:700px){
+  .israel-origin-banner{gap:14px;margin:-4px 0 22px;padding:15px;border-radius:17px}
+  .israel-flag{flex-basis:64px;width:64px;height:42px}
+  .flag-stripe{height:6px}.flag-stripe-top{top:7px}.flag-stripe-bottom{bottom:7px}
+  .flag-star{font-size:22px}
+  .origin-banner-copy b{font-size:17px}
+  .origin-banner-copy em{font-size:11px}
+}
+
+
+/* =========================================================
+   V17 — Dedicated Product Origin Section
+   ========================================================= */
+.origin-section{
+  padding:112px 0;
+  background:linear-gradient(180deg,#f7f3eb 0%,#fbf9f5 100%);
+  border-top:1px solid rgba(9,32,24,.06);
+  border-bottom:1px solid rgba(9,32,24,.06);
+}
+.origin-grid{
+  display:grid;
+  grid-template-columns:.88fr 1.12fr;
+  gap:72px;
+  align-items:center;
+}
+.origin-intro{max-width:520px}
+.origin-intro h2{
+  margin:14px 0 18px;
+  font-family:"Manrope",sans-serif;
+  font-size:clamp(44px,5vw,68px);
+  line-height:1.02;
+  letter-spacing:-.055em;
+  color:var(--ink);
+}
+.origin-intro p{
+  margin:0;
+  max-width:500px;
+  font-size:17px;
+  line-height:1.75;
+  color:var(--muted);
+}
+.origin-card{
+  display:grid;
+  grid-template-columns:160px 1fr;
+  gap:28px 34px;
+  align-items:center;
+  padding:34px;
+  border-radius:30px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 24px 64px rgba(8,33,24,.07);
+}
+.origin-flag-large{
+  position:relative;
+  width:160px;
+  height:104px;
+  overflow:hidden;
+  border-radius:14px;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.10);
+  box-shadow:0 10px 26px rgba(0,0,0,.09);
+}
+.origin-flag-stripe{
+  position:absolute;
+  left:0;
+  right:0;
+  height:15px;
+  background:#1f5aa6;
+}
+.origin-flag-stripe.top{top:18px}
+.origin-flag-stripe.bottom{bottom:18px}
+.origin-flag-star{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-size:48px;
+  line-height:1;
+  color:#1f5aa6;
+}
+.origin-card-copy>span{
+  display:block;
+  margin-bottom:8px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.17em;
+  color:#697970;
+}
+.origin-card-copy strong{
+  display:block;
+  font-family:"Manrope",sans-serif;
+  font-size:36px;
+  line-height:1;
+  letter-spacing:-.04em;
+  color:#102a20;
+}
+.origin-card-copy p{
+  margin:12px 0 0;
+  font-size:15px;
+  line-height:1.7;
+  color:var(--muted);
+}
+.origin-card-meta{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+}
+.origin-card-meta div{
+  padding:18px 18px 0 0;
+}
+.origin-card-meta div+div{
+  padding-left:22px;
+  border-left:1px solid var(--line);
+}
+.origin-card-meta span{
+  display:block;
+  margin-bottom:6px;
+  font-size:11px;
+  color:#7a8981;
+}
+.origin-card-meta b{
+  display:block;
+  font-size:15px;
+  color:#102a20;
+}
+
+@media(max-width:1050px){
+  .origin-grid{grid-template-columns:1fr;gap:36px}
+  .origin-intro{max-width:720px}
+  .origin-card{max-width:760px}
+}
+
+@media(max-width:700px){
+  .origin-section{padding:68px 0}
+  .origin-grid{gap:28px}
+  .origin-intro h2{font-size:clamp(34px,9vw,42px)}
+  .origin-intro p{font-size:15px}
+  .origin-card{
+    grid-template-columns:1fr;
+    gap:20px;
+    padding:24px;
+    border-radius:24px;
+  }
+  .origin-flag-large{width:138px;height:90px}
+  .origin-flag-stripe{height:13px}
+  .origin-flag-stripe.top{top:15px}
+  .origin-flag-stripe.bottom{bottom:15px}
+  .origin-flag-star{font-size:42px}
+  .origin-card-copy strong{font-size:32px}
+  .origin-card-meta{grid-template-columns:1fr;gap:0}
+  .origin-card-meta div{padding:14px 0}
+  .origin-card-meta div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+}

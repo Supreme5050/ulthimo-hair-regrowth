@@ -34,6 +34,10 @@ const faqs = [
     a: "No. The latest price and delivery details are confirmed with you directly on WhatsApp before dispatch, and payment on delivery is available.",
   },
   {
+    q: "Where is the product made?",
+    a: "Ulthimo is proudly made in Israel. Product origin is also highlighted on the ordering section so buyers can see it before placing an order.",
+  },
+  {
     q: "How soon can I expect results?",
     a: "Individual results vary and consistent use may be required over time. Follow the product label carefully and speak with a qualified healthcare professional if you are unsure whether 5% minoxidil is appropriate for you.",
   },
@@ -138,6 +142,7 @@ function App() {
           <nav className="desktop-nav" aria-label="Primary navigation">
             <button onClick={() => go("product")}>The Kit</button>
             <button onClick={() => go("details")}>Details</button>
+            <button onClick={() => go("origin")}>Origin</button>
             <button onClick={() => go("order")}>Order</button>
             <button onClick={() => go("faq")}>FAQ</button>
           </nav>
@@ -168,6 +173,7 @@ function App() {
               <div className="mobile-nav">
                 <button onClick={() => go("product")}>The Kit</button>
                 <button onClick={() => go("details")}>Details</button>
+                <button onClick={() => go("origin")}>Origin</button>
                 <button onClick={() => go("order")}>Order</button>
                 <button onClick={() => go("faq")}>FAQ</button>
                 <a href={whatsappLink} target="_blank" rel="noreferrer">Order on WhatsApp</a>
@@ -210,6 +216,45 @@ function App() {
           </div>
 </section>
 
+        <section id="order" className="order-section order-first-section">
+          <div className="container order-first-wrap">
+            <div className="order-panel order-panel-first reveal">
+              <div className="order-first-head">
+                <div>
+                  <span className="kicker">ORDER YOUR KIT</span>
+                  <h2>Choose your quantity and place your order.</h2>
+                  <p>Start here. Select the quantity you want, then continue to WhatsApp to confirm availability and delivery. Pay on Delivery is available.</p>
+                </div>
+              </div>
+
+              <div className="order-specs order-specs-first">
+                <div><span>Product</span><b>Ulthimo Hair Regrowth Kit</b></div>
+                <div><span>Pack size</span><b>60 ml / 2 fl oz</b></div>
+                <div><span>Included</span><b>Derma roller</b></div>
+                <div><span>Payment option</span><b>Pay on Delivery</b></div>
+              </div>
+
+              <div className="quantity-row quantity-row-first">
+                <div>
+                  <span className="quantity-label">Select quantity</span>
+                  <small>Choose how many kits you want to order.</small>
+                </div>
+                <div className="quantity">
+                  <button onClick={() => setQty(q => Math.max(1,q-1))} aria-label="Decrease quantity"><Minus size={17}/></button>
+                  <strong>{qty}</strong>
+                  <button onClick={() => setQty(q => q+1)} aria-label="Increase quantity"><Plus size={17}/></button>
+                </div>
+              </div>
+
+              <div className="order-actions-stack order-actions-first">
+                <a className="btn gold full" href={whatsappLink} target="_blank" rel="noreferrer">Order on WhatsApp <ArrowRight size={18}/></a>
+                <a className="btn delivery full" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Pay on Delivery <ArrowRight size={18}/></a>
+              </div>
+              <small className="order-note">Your order is confirmed directly on WhatsApp. Delivery details and the final amount are confirmed before dispatch.</small>
+            </div>
+          </div>
+        </section>
+
         <section id="product" className="product-section">
           <div className="container product-grid">
             <div className="product-media reveal">
@@ -221,7 +266,7 @@ function App() {
             <div className="product-copy reveal">
               <span className="kicker">WHAT'S INSIDE</span>
               <h2>One kit. A clear, consistent routine.</h2>
-              <p>Everything is brought together in one straightforward pack. Review the label, follow the directions carefully and keep your routine consistent.</p>
+              <p>Everything is brought together in one straightforward pack. The kit combines the product and derma roller in a simple routine you can follow consistently.</p>
 
               <div className="product-list">
                 <div><PackageCheck/><span><b>Men's Extra Strength 5% Minoxidil</b><small>The topical formula stated on the product packaging.</small></span></div>
@@ -258,38 +303,32 @@ function App() {
           </div>
         </section>
 
-        <section id="order" className="order-section">
-          <div className="container order-grid">
-            <div className="order-visual reveal">
-              <img src="/product-order.jpg" alt="Ulthimo Hair Regrowth Kit product pack"/>
-              <div className="visual-label"><span className="live-dot"/><b>Order directly on WhatsApp</b></div>
+        <section id="origin" className="origin-section">
+          <div className="container origin-grid">
+            <div className="origin-intro reveal">
+              <span className="kicker">PRODUCT ORIGIN</span>
+              <h2>Proudly made in Israel.</h2>
+              <p>We make the country of origin easy to see, so buyers know where the product is made before placing an order.</p>
             </div>
 
-            <div className="order-panel reveal">
-              <span className="kicker">ORDER ON WHATSAPP</span>
-              <h2>Choose your quantity and order with confidence.</h2>
-              <p>Place your order on WhatsApp and confirm delivery quickly. Payment on delivery is available, so buyers can order now and pay when the product arrives.</p>
-
-              <div className="order-specs">
-                <div><span>Product</span><b>Ulthimo Hair Regrowth Kit</b></div>
-                <div><span>Pack size</span><b>60 ml / 2 fl oz</b></div>
-                <div><span>Included</span><b>Derma roller</b></div>
+            <div className="origin-card reveal">
+              <div className="origin-flag-large" aria-hidden="true">
+                <span className="origin-flag-stripe top"></span>
+                <span className="origin-flag-star">✡</span>
+                <span className="origin-flag-stripe bottom"></span>
               </div>
 
-              <div className="quantity-row">
-                <span>Select quantity</span>
-                <div className="quantity">
-                  <button onClick={() => setQty(q => Math.max(1,q-1))} aria-label="Decrease quantity"><Minus size={17}/></button>
-                  <strong>{qty}</strong>
-                  <button onClick={() => setQty(q => q+1)} aria-label="Increase quantity"><Plus size={17}/></button>
-                </div>
+              <div className="origin-card-copy">
+                <span>COUNTRY OF ORIGIN</span>
+                <strong>Israel</strong>
+                <p>Ulthimo is proudly made in Israel and presented with its origin clearly stated for buyers.</p>
               </div>
 
-              <div className="order-actions-stack">
-                <a className="btn gold full" href={whatsappLink} target="_blank" rel="noreferrer">Continue to WhatsApp <ArrowRight size={18}/></a>
-                <a className="btn delivery full" href={paymentOnDeliveryLink} target="_blank" rel="noreferrer">Pay on Delivery <ArrowRight size={18}/></a>
+              <div className="origin-card-meta">
+                <div><span>Origin</span><b>Israel</b></div>
+                <div><span>Ordering</span><b>WhatsApp</b></div>
+                <div><span>Payment option</span><b>Pay on Delivery</b></div>
               </div>
-              <small className="order-note">This page does not collect payment. Price, delivery details and payment on delivery are confirmed directly in chat.</small>
             </div>
           </div>
         </section>
@@ -360,6 +399,7 @@ function App() {
           <div className="footer-nav">
             <button onClick={() => go("product")}>The Kit</button>
             <button onClick={() => go("details")}>Details</button>
+            <button onClick={() => go("origin")}>Origin</button>
             <button onClick={() => go("order")}>Order</button>
             <button onClick={() => go("faq")}>FAQ</button>
           </div>
